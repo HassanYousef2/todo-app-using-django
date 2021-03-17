@@ -1,0 +1,12 @@
+{% extends 'todo/layout.html' %}
+
+{% block body %}
+
+<form action="{% url 'addTask' %}" method="POST">
+    {% csrf_token %}
+    <input type="text" name="task" placeholder="add a task">
+    <button type="submit">add task</button>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'todo/layout.html' %}
+
+{% block body %}
+
+<form action="{% url 'deleteTask' %}" method="POST">
+    {% csrf_token %}
+    <select name="task" >
+        {% for task in tasks %}
+            <option value="{{task}}">{{task}}</option>
+
+            {% empty %}
+            <option disabled> there is no task to be removed </option>
+        {% endfor %}
+    </select>
+    <button type="submit">Delete task</button>
+</form>
+
+{% endblock %}
